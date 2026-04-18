@@ -1,24 +1,130 @@
-html,
-body,
-#root{
-    height: 100%;
-    margin: 0;
-    padding: 0;
+.header {
+  background: #f8f6f1;
+  border-bottom: 1px solid #e5dfd5;
 }
 
-.header{
-    display: flex;
-    justify-content: left;
-    padding-left: 50px;
-    align-items: center;
-    gap: 25px;
-    background-color: aliceblue;
-
+.header-inner {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.navbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+.brand-mark {
+  color: #192858;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-right: auto;
+}
+
+.top-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #5e6168;
+  font-size: 0.95rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.top-link.active {
+  color: #cc6a2e;
+}
+
+.top-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -14px;
+  height: 2px;
+  background: #cc6a2e;
+}
+
+.top-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tool {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1.6px solid #192858;
+  position: relative;
+}
+
+.tool.globe::before,
+.tool.globe::after,
+.tool.profile::before,
+.tool.profile::after {
+  content: "";
+  position: absolute;
+}
+
+.tool.globe::before {
+  inset: 3px 7px;
+  border-left: 1px solid #192858;
+  border-right: 1px solid #192858;
+}
+
+.tool.globe::after {
+  left: 3px;
+  right: 3px;
+  top: 7px;
+  border-top: 1px solid #192858;
+}
+
+.tool.profile::before {
+  width: 5px;
+  height: 5px;
+  top: 3px;
+  left: 5px;
+  border-radius: 999px;
+  background: #192858;
+}
+
+.tool.profile::after {
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  height: 5px;
+  border-radius: 999px 999px 4px 4px;
+  background: #192858;
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    width: min(100% - 20px, 1120px);
+    padding: 16px 0 12px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .brand-mark {
+    font-size: 1.75rem;
+  }
+
+  .top-nav {
+    width: 100%;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .top-tools {
+    display: none;
+  }
 }
